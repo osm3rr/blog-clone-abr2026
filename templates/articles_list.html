@@ -5,7 +5,7 @@
     <ul>
         {% for publication in article_list %}
             <li>
-                {{ publication.title }} - {{ publication.author.username }} ({{ publication.created_at }})
+                <a href="{% url 'article-detail' publication.pk %}">{{ publication.title }}</a> - {{ publication.author.username }} ({{ publication.created_at }})
             </li>
         {% empty %}
             <li>No hay artículos disponibles.</li>
