@@ -1,4 +1,9 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import (ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  )
+
 from .models import Article
 
 
@@ -16,3 +21,7 @@ class ArticleCreateView(CreateView):
     template_name = 'article_create.html'
     fields = ['title', 'content', 'author']
 
+class ArticleUpdateView(UpdateView):
+    model = Article
+    template_name = 'article_update.html'
+    fields = ['title', 'content']
