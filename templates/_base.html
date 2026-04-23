@@ -13,6 +13,16 @@
         <div>
             <a href="{% url 'article-create' %}">Crear artículo</a>
         </div>
+        <!-- registro de usuario    -->
+        <div>
+            {% if user.is_authenticated %}
+                <span>Bienvenido, {{ user.username }}!</span>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}">Iniciar sesión</a> |
+                <a href="{% url 'signup' %}">Registrarse</a>
+            {% endif %}
+        </div>
     </header>
 
     {% block content %}
