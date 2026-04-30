@@ -8,6 +8,9 @@
         <p><strong>Fecha:</strong> {{ article.created_at }}</p>
     </article>
     
-    <a href="{% url 'article-update' article.pk %}">Editar artículo</a> |
-    <a href="{% url 'article-delete' article.pk %}">Eliminar artículo</a>
+    <!-- Mostrar los enlaces, solo si el usuario está autenticado y es el autor del artículo -->
+    {% if user.is_authenticated and user == article.author %}
+        <a href="{% url 'article-update' article.pk %}">Editar artículo</a> |
+        <a href="{% url 'article-delete' article.pk %}">Eliminar artículo</a>
+    {% endif %}
 {% endblock content %}
